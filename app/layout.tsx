@@ -9,8 +9,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js Production Ready Setup",
-  description: "A clean, production-ready Next.js project setup",
+  title: "Pascal Auto Solutions",
+  description: "Pioneering Low Cost Automation, SPM, and Hydraulic presses since 1994.",
 };
 
 export default function RootLayout({
