@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Production-Ready Setup
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+This is a completely brand-new, clean, production-ready Next.js project setup. It serves as a scalable foundation for any full-stack Next.js application, pre-configured with essential tools and an organized clean architecture-based folder structure.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Database**: [MongoDB](https://www.mongodb.com/) with [Mongoose](https://mongoosejs.com/)
+- **Linting & Formatting**: ESLint, Prettier
+
+## Folder Structure
+
+```
+├── app/          # Next.js App Router and page components
+│   └── api/      # Next.js API Routes
+├── components/   # Reusable React components
+├── constants/    # Global constants and configuration values
+├── hooks/        # Custom React hooks
+├── lib/          # Utility libraries and core setup (e.g., MongoDB connection)
+├── models/       # Mongoose database models
+├── public/       # Static assets like images and fonts
+├── services/     # Business logic and external API communication
+├── styles/       # Global styling configuration
+├── types/        # TypeScript type definitions and interfaces
+└── utils/        # General helper functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation Steps
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository and navigate into the directory.
+2. Install dependencies using npm (do not use yarn or pnpm):
 
-## Learn More
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Environment Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Copy the `.env.example` file to create a `.env.local` file:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+cp .env.example .env.local
+```
 
-## Deploy on Vercel
+2. Update the environment variables in `.env.local` with your actual configuration values:
+   - `MONGODB_URI`: Your MongoDB connection string.
+   - `NEXT_PUBLIC_SITE_URL`: Your application's URL.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Available npm Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev`: Starts the development server with hot-reload.
+- `npm run build`: Builds the application for production.
+- `npm start`: Starts the production server.
+- `npm run lint`: Runs ESLint to analyze the code for errors.
