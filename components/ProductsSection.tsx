@@ -57,7 +57,7 @@ const products = [
 
 export default function ProductsSection() {
   return (
-    <section className="py-28 bg-[#f8fafc] relative overflow-hidden border-b border-gray-100">
+    <section id="products" className="py-28 bg-[#f8fafc] relative overflow-hidden border-b border-gray-100">
       {/* Background Decorative Grid */}
       <div 
         className="absolute inset-0 opacity-[0.04] z-0 pointer-events-none"
@@ -79,11 +79,11 @@ export default function ProductsSection() {
             <div className="w-8 h-[2px] bg-[#0047b3]"></div>
           </div>
           
-          <h2 className="text-4xl lg:text-5xl font-black text-slate-900 leading-tight tracking-tighter mb-6">
+          <h2 className="text-4xl lg:text-5xl font-black text-slate-900 leading-tight tracking-tighter mb-6" style={{ fontFamily: 'Gotham, sans-serif' }}>
             Engineered for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0047b3] to-blue-600">Excellence</span>
           </h2>
           
-          <p className="text-lg text-slate-600 leading-relaxed font-medium">
+          <p className="text-lg text-slate-600/80 leading-relaxed font-medium max-w-prose mx-auto">
             We are committed to manufacturing products as per customer requirements in order to enhance customer satisfaction. This we achieve through continual improvement in our product quality.
           </p>
         </div>
@@ -110,7 +110,7 @@ export default function ProductsSection() {
                 </h3>
                 
                 {/* Description */}
-                <p className="text-slate-500 leading-relaxed text-sm flex-grow font-medium">
+                <p className="text-slate-500/80 leading-relaxed text-sm flex-grow font-medium">
                   {product.desc}
                 </p>
 

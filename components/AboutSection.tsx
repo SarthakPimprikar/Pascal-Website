@@ -2,7 +2,7 @@ import { CheckCircle2, MapPin, Calendar, Wrench } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden border-b border-gray-100">
+    <section id="about" className="py-24 bg-white relative overflow-hidden border-b border-gray-100">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-[#f8fafc] -skew-x-12 translate-x-20 z-0"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#0047b3]/5 rounded-full blur-[80px] pointer-events-none"></div>
@@ -19,15 +19,15 @@ export default function AboutSection() {
                   Our Story
                 </h3>
               </div>
-              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 leading-[1.1] tracking-tighter">
+              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 leading-[1.1] tracking-tighter" style={{ fontFamily: 'Gotham, sans-serif' }}>
                 About <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0047b3] to-blue-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0047b3] to-blue-600" style={{ fontWeight: 550 }}>
                   Pascal Auto Solutions
                 </span>
               </h2>
             </div>
 
-            <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-medium">
+            <div className="space-y-6 text-lg text-slate-600/80 leading-relaxed font-medium max-w-prose">
               <p>
                 We have started operations in the year 1994 as Pascal Auto Systems. We are situated in automation hub at Sinhagad road, Nanded phata, Pune. We are a company working in the field of Low Cost Automation and assembly SPMs and presses catering to automobile sector.
               </p>
