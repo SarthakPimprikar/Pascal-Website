@@ -9,15 +9,11 @@ export default function Footer() {
           
           {/* Column 1: Logo and MFG text */}
           <div className="flex flex-col items-center text-center space-y-8">
-            <Link href="/" className="inline-block bg-white rounded-2xl shadow-md border border-blue-100 relative overflow-hidden group hover:border-blue-300 transition-colors duration-300">
-              {/* Creative Blue Accents */}
-              <div className="absolute left-0 top-0 bottom-0 w-2.5 bg-gradient-to-b from-[#0047b3] to-blue-400"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-2.5 bg-gradient-to-b from-[#0047b3] to-blue-400"></div>
-              
+            <Link href="/" className="inline-block hover:opacity-90 transition-opacity duration-300">
               <img 
-                src="/pascal_logo.png" 
+                src="/fotterlogo.png" 
                 alt="Pascal Auto Solutions Logo" 
-                className="h-40 md:h-56 w-auto object-contain [clip-path:inset(3px)] px-10 py-6"
+                className="h-56 md:h-72 w-auto object-contain"
               />
             </Link>
             <p className="text-sm font-semibold tracking-wide text-slate-400 leading-relaxed uppercase">
@@ -30,8 +26,8 @@ export default function Footer() {
             
             {/* Company Name Header spanning across the right side */}
             <div className="mb-8 border-b border-slate-800/80 pb-6 text-center">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-wide uppercase">
-                PASCAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-400">AUTO SOLUTIONS</span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-wide uppercase" style={{ fontFamily: 'Gotham, sans-serif' }}>
+                <span style={{ fontWeight: 550 }}>PASCAL</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-400">AUTO SOLUTIONS</span>
               </h2>
             </div>
             

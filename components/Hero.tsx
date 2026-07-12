@@ -2,7 +2,7 @@ import { Car, Settings, Factory, Hammer, Cpu, Wrench, ChevronLeft, ChevronRight,
 
 export default function Hero() {
   return (
-    <div className="relative bg-[#fcfcfc] overflow-hidden min-h-[calc(100vh-6rem)] flex flex-col justify-center border-b border-gray-200">
+    <div id="home" className="relative bg-[#fcfcfc] overflow-hidden min-h-[calc(100vh-6rem)] flex flex-col justify-center border-b border-gray-200">
       {/* Creative Engineering Background */}
       <div className="absolute inset-0 z-0 bg-white">
         {/* Angled Background Panel */}
@@ -40,8 +40,8 @@ export default function Hero() {
           <div className="space-y-6 relative z-20">
 
             
-            <h1 className="text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem] font-black text-slate-950 leading-[1.1] tracking-tighter relative inline-block drop-shadow-sm">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0047b3] to-blue-600">
+            <h1 className="text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem] font-black text-slate-950 leading-[1.1] tracking-tighter relative inline-block drop-shadow-sm" style={{ fontFamily: 'Gotham, sans-serif' }}>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0047b3] to-blue-600" style={{ fontWeight: 550 }}>
                 PASCAL
               </span> <br /> 
               AUTO SOLUTIONS
@@ -59,7 +59,7 @@ export default function Hero() {
               Specialists in Low-Cost Automation & Assembly SPMs
             </p>
             
-            <p className="text-slate-600 text-lg max-w-lg xl:max-w-xl leading-relaxed mt-4">
+            <p className="text-slate-600/80 text-lg max-w-lg xl:max-w-xl leading-relaxed mt-4">
               Catering to the automobile sector, we deliver cost-effective solutions with core expertise in Hydraulics and Pneumatics. We design systems with future maintenance and spares availability in mind.
             </p>
             
@@ -111,24 +111,25 @@ export default function Hero() {
         </div>
 
         {/* Trusted By Industry */}
-        <div className="mt-auto pt-24 relative z-20">
-          <div className="relative border-t-[1.5px] border-gray-200 flex justify-center mb-12">
-            <div className="absolute -top-[14px] bg-[#fcfcfc] px-8 flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-blue-300"></div>
-              <span className="text-[#0047b3] font-bold tracking-[0.2em] text-sm uppercase text-center">
-                Trusted By Industry Leaders
-              </span>
-              <div className="w-2 h-2 rounded-full bg-blue-300"></div>
+        <div className="mt-auto pt-24 pb-4 relative z-20 w-full">
+          <div className="max-w-7xl mx-auto bg-gradient-to-r from-blue-50/80 via-white/60 to-slate-50/80 backdrop-blur-md border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-3xl p-8 md:p-10">
+            <div className="flex justify-center mb-10">
+              <div className="flex items-center gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#0047b3]"></div>
+                <span className="text-slate-500 font-bold tracking-[0.2em] text-sm uppercase text-center">
+                  Trusted By Industry Leaders
+                </span>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#0047b3]"></div>
+              </div>
             </div>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-8 md:gap-14 lg:gap-20 max-w-6xl mx-auto opacity-70">
-            <ClientLogo name="TATA MOTORS" />
-            <ClientLogo name="MAHINDRA" />
-            <ClientLogo name="BAJAJ AUTO" />
-            <ClientLogo name="FIAT INDIA" />
-            <ClientLogo name="GREAVES" />
-            <ClientLogo name="JAYAHIND" />
+            
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14 lg:gap-20 opacity-100">
+              <ClientLogo name="TATA MOTORS" src="/clients/tatamotors.logo.png" />
+              <ClientLogo name="MAHINDRA" src="/clients/mahendra.logo.png" />
+              <ClientLogo name="BAJAJ AUTO" src="/clients/BAJAJ.logo.png" />
+              <ClientLogo name="FIAT INDIA" src="/clients/FIAT.logo.png" />
+              <ClientLogo name="JAYAHIND" src="/clients/JAYAHIND.logo.png" />
+            </div>
           </div>
         </div>
       </div>
@@ -136,7 +137,14 @@ export default function Hero() {
   );
 }
 
-function ClientLogo({ name }: { name: string }) {
+function ClientLogo({ name, src }: { name: string, src?: string }) {
+  if (src) {
+    return (
+      <div className="flex items-center justify-center transition-all duration-300 hover:scale-[1.15] cursor-pointer h-20 w-40 md:h-24 md:w-56">
+        <img src={src} alt={name} className="max-h-full max-w-full object-contain scale-[1.6] md:scale-[1.8]" />
+      </div>
+    );
+  }
   return (
     <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110 cursor-pointer">
       <span className="text-xl md:text-2xl font-black text-slate-500 tracking-widest uppercase text-center font-sans">

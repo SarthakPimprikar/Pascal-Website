@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function CTASection() {
   return (
-    <section className="relative py-24 bg-[#0047b3] overflow-hidden">
+    <section id="contact" className="relative py-24 bg-[#0047b3] overflow-hidden">
       {/* Abstract Background Shapes */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-400/20 rounded-full blur-2xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
@@ -18,11 +18,11 @@ export default function CTASection() {
       />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-        <h2 className="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-6 drop-shadow-sm">
+        <h2 className="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-6 drop-shadow-sm" style={{ fontFamily: 'Gotham, sans-serif' }}>
           Ready to Automate Your Future?
         </h2>
         
-        <p className="text-lg md:text-xl text-blue-100 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+        <p className="text-lg md:text-xl text-blue-100/80 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
           Partner with Pascal Auto Solutions to engineer cost-effective, high-performance machinery tailored precisely to your manufacturing requirements.
         </p>
         

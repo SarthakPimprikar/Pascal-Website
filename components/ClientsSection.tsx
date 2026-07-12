@@ -3,12 +3,13 @@
 import { Handshake, Globe2, MapPin } from "lucide-react";
 
 const clientLogos = [
-  { src: "/clients/bajaj.png", alt: "Bajaj" },
+  { src: "/clients/BAJAJ.logo.png", alt: "Bajaj" },
   { src: "/clients/greaves.png", alt: "Greaves Cotton Limited" },
-  { src: "/clients/fiat.png", alt: "FIAT" },
-  { src: "/clients/tata.png", alt: "TATA Motors" },
+  { src: "/clients/FIAT.logo.png", alt: "FIAT" },
+  { src: "/clients/tatamotors.logo.png", alt: "TATA Motors" },
+  { src: "/clients/mahendra.logo.png", alt: "Mahindra" },
   { src: "/clients/cummins-blue.png", alt: "Cummins" },
-  { src: "/clients/jayahind.png", alt: "Jaya Hind" },
+  { src: "/clients/JAYAHIND.logo.png", alt: "Jaya Hind" },
   { src: "/clients/saj.png", alt: "SAJ Test Plant" },
   { src: "/clients/dynomerk.png", alt: "Dynomerk Controls" },
   { src: "/clients/umasons.png", alt: "Umasons Auto Compo" },
