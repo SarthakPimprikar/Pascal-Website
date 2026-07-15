@@ -20,18 +20,7 @@ interface HeroProps {
   }>;
 }
 
-const isLogoAvailable = (logo: string) => {
-  if (!logo) return false;
-  if (logo.startsWith('http://') || logo.startsWith('https://')) return true;
-  const availableLogos = [
-    '/clients/BAJAJ.logo.png',
-    '/clients/tatamotors.logo.png',
-    '/clients/mahendra.logo.png',
-    '/clients/FIAT.logo.png',
-    '/clients/JAYAHIND.logo.png'
-  ];
-  return availableLogos.includes(logo);
-};
+
 
 export default function Hero({ content, clients }: HeroProps) {
   const title = content?.title || "PASCAL AUTO SOLUTIONS";
@@ -205,10 +194,10 @@ export default function Hero({ content, clients }: HeroProps) {
 }
 
 function ClientLogo({ name, src }: { name: string, src?: string }) {
-  if (src && isLogoAvailable(src)) {
+  if (src) {
     return (
       <div className="flex items-center justify-center transition-all duration-300 hover:scale-[1.15] cursor-pointer h-20 w-40 md:h-24 md:w-56">
-        <img src={src} alt={name} className="max-h-full max-w-full object-contain scale-[1.6] md:scale-[1.8]" />
+        <img src={`${src}?v=1`} alt={name} className="max-h-full max-w-full object-contain scale-[1.6] md:scale-[1.8]" />
       </div>
     );
   }

@@ -10,9 +10,9 @@ const staticClientLogos = [
   { logo: "/clients/FIAT.logo.png", name: "FIAT" },
   { logo: "/clients/tatamotors.logo.png", name: "TATA Motors" },
   { logo: "/clients/mahendra.logo.png", name: "Mahindra" },
-  { logo: "/clients/cummins-blue.png", name: "Cummins" },
+  { logo: "/clients/cummins_new.png", name: "Cummins" },
   { logo: "/clients/JAYAHIND.logo.png", name: "Jaya Hind" },
-  { logo: "/clients/saj.png", name: "SAJ Test Plant" },
+  { logo: "/clients/saj_new.png", name: "SAJ Test Plant" },
   { logo: "/clients/dynomerk.png", name: "Dynomerk Controls" },
   { logo: "/clients/umasons.png", name: "Umasons Auto Compo" },
   { logo: "/clients/carraro.png", name: "Carraro" },
@@ -35,15 +35,7 @@ interface ClientsSectionProps {
 
 const isLogoAvailable = (logo: string) => {
   if (!logo) return false;
-  if (logo.startsWith('http://') || logo.startsWith('https://')) return true;
-  const availableLogos = [
-    '/clients/BAJAJ.logo.png',
-    '/clients/tatamotors.logo.png',
-    '/clients/mahendra.logo.png',
-    '/clients/FIAT.logo.png',
-    '/clients/JAYAHIND.logo.png'
-  ];
-  return availableLogos.includes(logo);
+  return true;
 };
 
 function ClientCard({ client }: { client: any }) {
@@ -51,16 +43,12 @@ function ClientCard({ client }: { client: any }) {
   const useTextFallback = !isLogoAvailable(client.logo) || imageError;
 
   return (
-    <div className="bg-white border border-gray-200 shadow-sm hover:shadow-lg hover:border-blue-300 transition-all duration-300 rounded-xl p-6 flex items-center justify-center aspect-[4/3] overflow-hidden group cursor-pointer">
-      {useTextFallback ? (
-        <span className="text-sm font-bold text-slate-400 text-center uppercase tracking-wider group-hover:text-[#0047b3] transition-colors">
-          {client.name}
-        </span>
-      ) : (
+    <div className="bg-white border border-gray-200 shadow-sm hover:shadow-lg hover:border-blue-300 transition-all duration-300 rounded-xl p-1 flex items-center justify-center aspect-[4/3] overflow-hidden group cursor-pointer">
+      {!imageError && client.logo && (
         <img 
-          src={client.logo} 
+          src={`${client.logo}?v=1`} 
           alt={client.name}
-          className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100 group-hover:scale-105"
+          className="w-full h-full object-contain scale-105"
           onError={() => setImageError(true)}
         />
       )}
@@ -73,31 +61,18 @@ function InternationalClientCard({ client }: { client: any }) {
   const useTextFallback = !isLogoAvailable(client.logo) || imageError;
 
   return (
-    <div className="w-full sm:w-80 bg-white border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-orange-200 transition-all duration-500 rounded-2xl p-8 flex flex-col items-center justify-between aspect-[4/3] group cursor-pointer relative overflow-hidden">
-      {/* Subtle map glow background */}
+    <div className="bg-white border border-gray-200 shadow-sm hover:shadow-lg hover:border-blue-300 transition-all duration-300 rounded-xl p-1 flex items-center justify-center h-[220px] overflow-hidden group cursor-pointer relative">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       
-      <div className="flex-1 flex items-center justify-center w-full relative z-10">
-        {useTextFallback ? (
-          <span className="text-xl font-black text-slate-700 text-center uppercase tracking-wider">
-            {client.name}
-          </span>
-        ) : (
+      <div className="flex-1 flex items-center justify-center w-full h-full relative z-10">
+        {!imageError && client.logo && (
           <img 
-            src={client.logo} 
+            src={`${client.logo}?v=1`} 
             alt={client.name}
-            className="max-w-full max-h-32 object-contain transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-contain scale-105"
             onError={() => setImageError(true)}
           />
         )}
-      </div>
-      
-      <div className="w-full pt-6 mt-4 border-t border-gray-100 flex items-center justify-between relative z-10">
-         <span className="font-bold text-slate-800">{client.name}</span>
-         <div className="flex items-center gap-1.5 text-orange-500 font-bold bg-orange-50 px-3 py-1 rounded-full">
-           <MapPin size={14} strokeWidth={2.5} />
-           <span className="text-sm tracking-wide">{client.country}</span>
-         </div>
       </div>
     </div>
   );
@@ -158,9 +133,7 @@ export default function ClientsSection({ clients }: ClientsSectionProps) {
         {/* Global Footprint Section */}
         <ScrollReveal direction="up" delay={100} duration={850} className="relative pt-16 border-t border-gray-150">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-6">
-            <div className="w-14 h-14 bg-gradient-to-br from-orange-100 to-orange-50 rounded-full flex items-center justify-center text-orange-500 shadow-sm border border-orange-100">
-              <Globe2 size={28} strokeWidth={2} />
-            </div>
+            <img src="/globe.png" alt="Global Presence" className="w-14 h-14 object-contain" />
           </div>
           
           <div className="text-center mb-12">
