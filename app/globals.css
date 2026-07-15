@@ -9,6 +9,7 @@
 
 html {
   scroll-behavior: smooth;
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -19,6 +20,7 @@ body {
   background-color: #ffffff;
   color: #171717;
   line-height: 1.5;
+  overscroll-behavior-y: none;
 }
 
 /* Dark Mode Basic Body Styling */

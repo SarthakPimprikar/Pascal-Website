@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const staticProductLinks = [
   { name: "Multi-spindle Press with Auto Feeder", href: "/products/multi-spindle-press" },
@@ -36,23 +38,31 @@ export default function ProductsLayout({
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50 pb-24">
-      {/* Products Hero Banner */}
-      <div className="relative bg-[#0a192f] py-8 md:py-12 overflow-hidden border-b-[6px] border-[#0047b3]">
-        {/* Subtle grid pattern background */}
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(#ffffff33_1px,transparent_1px),linear-gradient(90deg,#ffffff33_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-slate-50 pb-24">
+        {/* Products Hero Banner */}
+      <section className="relative text-white flex items-center justify-center overflow-hidden min-h-[30vh] md:min-h-[40vh] border-b-[6px] border-[#0047b3]">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80")' }}
+        ></div>
         
-        <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 xl:px-24">
-          <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-3" style={{ fontFamily: 'Gotham, sans-serif' }}>
-              OUR PRODUCTS
-            </h1>
-            <p className="text-slate-300 text-base md:text-lg">
-              Precision engineered solutions for modern manufacturing and automation challenges.
-            </p>
-          </div>
+        {/* Overlays for faded effect */}
+        <div className="absolute inset-0 z-0 bg-slate-950/70 mix-blend-multiply"></div>
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0047b3]/80 to-transparent"></div>
+        <div className="absolute inset-0 z-0 bg-[linear-gradient(#ffffff33_1px,transparent_1px),linear-gradient(90deg,#ffffff33_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"></div>
+        
+        <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 sm:px-12 lg:px-20 xl:px-24 text-center py-16">
+          <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-4 drop-shadow-lg" style={{ fontFamily: 'Gotham, sans-serif' }}>
+            OUR PRODUCTS
+          </h1>
+          <p className="text-blue-50 text-lg md:text-xl max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-md">
+            Precision engineered solutions for modern manufacturing and automation challenges.
+          </p>
         </div>
-      </div>
+      </section>
 
       <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 xl:px-24 py-12">
         <div className="flex flex-col lg:flex-row gap-10">
@@ -96,6 +106,8 @@ export default function ProductsLayout({
           
         </div>
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }

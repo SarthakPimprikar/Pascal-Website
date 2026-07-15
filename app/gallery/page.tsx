@@ -64,13 +64,23 @@ export default async function GalleryPage() {
         <Navbar config={siteConfigObj} products={productsList} />
 
         {/* Hero Section */}
-        <section className="bg-slate-900 py-16 md:py-24 relative overflow-hidden border-b-4 border-[#0047b3]">
-          <div className="absolute inset-0 opacity-10 bg-[linear-gradient(#ffffff33_1px,transparent_1px),linear-gradient(90deg,#ffffff33_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-          <div className="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 xl:px-24 relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-4" style={{ fontFamily: 'Gotham, sans-serif' }}>
+        <section className="relative text-white flex items-center justify-center overflow-hidden min-h-[30vh] md:min-h-[40vh] border-b-[6px] border-[#0047b3]">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=2000&q=80")' }}
+          ></div>
+          
+          {/* Overlays for faded effect */}
+          <div className="absolute inset-0 z-0 bg-slate-950/70 mix-blend-multiply"></div>
+          <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0047b3]/80 to-transparent"></div>
+          <div className="absolute inset-0 z-0 bg-[linear-gradient(#ffffff33_1px,transparent_1px),linear-gradient(90deg,#ffffff33_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"></div>
+
+          <div className="max-w-[1440px] w-full mx-auto px-6 sm:px-12 lg:px-20 xl:px-24 relative z-10 text-center py-16">
+            <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-4 drop-shadow-lg" style={{ fontFamily: 'Gotham, sans-serif' }}>
               OUR GALLERY
             </h1>
-            <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+            <p className="text-blue-50 text-lg max-w-2xl mx-auto drop-shadow-md">
               Visual showcase of our custom machine developments, hydraulic fixtures, and operational shop floors.
             </p>
           </div>

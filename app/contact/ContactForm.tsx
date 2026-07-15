@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
+import GradientMapPin from "@/components/GradientMapPin";
+import GradientPhone from "@/components/GradientPhone";
+import GradientMail from "@/components/GradientMail";
 
 interface ContactFormProps {
   config?: {
@@ -79,7 +82,7 @@ export default function ContactForm({ config }: ContactFormProps) {
           <div className="space-y-6">
             <div className="flex items-start gap-4">
               <div className="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center shrink-0">
-                <MapPin size={22} className="text-blue-300" />
+                <GradientMapPin size={28} />
               </div>
               <div>
                 <span className="text-xs font-bold text-blue-300 uppercase tracking-wider block mb-1">Our Location</span>
@@ -89,7 +92,7 @@ export default function ContactForm({ config }: ContactFormProps) {
 
             <div className="flex items-start gap-4">
               <div className="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center shrink-0">
-                <Phone size={22} className="text-blue-300" />
+                <GradientPhone size={28} />
               </div>
               <div>
                 <span className="text-xs font-bold text-blue-300 uppercase tracking-wider block mb-1">Call Us</span>
@@ -99,7 +102,7 @@ export default function ContactForm({ config }: ContactFormProps) {
 
             <div className="flex items-start gap-4">
               <div className="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center shrink-0">
-                <Mail size={22} className="text-blue-300" />
+                <GradientMail size={26} />
               </div>
               <div>
                 <span className="text-xs font-bold text-blue-300 uppercase tracking-wider block mb-1">Email Us</span>
@@ -205,7 +208,7 @@ export default function ContactForm({ config }: ContactFormProps) {
             <button
               type="submit"
               disabled={loading}
-              className="bg-[#0047b3] hover:bg-blue-800 text-white font-bold text-sm px-6.5 py-3.5 rounded-xl shadow-lg hover:shadow-blue-500/10 flex items-center gap-2 cursor-pointer transition-all disabled:opacity-50"
+              className="bg-gradient-to-r from-blue-500 to-[#0047b3] hover:from-blue-400 hover:to-blue-800 text-white font-bold text-sm px-6.5 py-3.5 rounded-xl shadow-lg hover:shadow-blue-500/10 flex items-center gap-2 cursor-pointer transition-all disabled:opacity-50"
             >
               {loading ? (
                 <>
