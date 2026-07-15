@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
-const productLinks = [
+const staticProductLinks = [
   { name: "Multi-spindle Press with Auto Feeder", href: "/products/multi-spindle-press" },
   { name: "Hydraulic C Frame Press", href: "/products/hydraulic-c-frame-press" },
   { name: "Machining Fixtures", href: "/products/machining-fixtures" },
@@ -21,6 +22,18 @@ export default function ProductsLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const [productLinks, setProductLinks] = useState(staticProductLinks);
+
+  useEffect(() => {
+    fetch("/api/admin/products")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setProductLinks(data.map((p) => ({ name: p.title, href: `/products/${p.slug}` })));
+        }
+      })
+      .catch((err) => console.error("Error fetching dynamic products sidebar links:", err));
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50 pb-24">

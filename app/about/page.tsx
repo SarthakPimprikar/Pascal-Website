@@ -1,8 +1,13 @@
+import connectToDatabase from "@/lib/mongodb";
+import SiteConfig from "@/models/siteConfig";
+import Product from "@/models/product";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Users, Handshake, ShieldCheck, Leaf, TrendingUp, Quote, CheckCircle2 } from "lucide-react";
 
-export default function AboutPage() {
+export const dynamic = "force-dynamic";
+
+export default async function AboutPage() {
   const founders = [
     {
       name: "Mr. Chandrashekar V",
@@ -49,9 +54,24 @@ export default function AboutPage() {
     { title: "CONTINUAL IMPROVEMENT", icon: TrendingUp, color: "text-orange-500" },
   ];
 
+  let siteConfigObj = undefined;
+  let productsList = undefined;
+
+  try {
+    await connectToDatabase();
+    const [config, products] = await Promise.all([
+      SiteConfig.findOne({ key: "main_config" }),
+      Product.find({}).sort({ order: 1, createdAt: -1 })
+    ]);
+    if (config) siteConfigObj = JSON.parse(JSON.stringify(config));
+    if (products) productsList = JSON.parse(JSON.stringify(products));
+  } catch (error) {
+    console.error("Failed to query configs on about page.", error);
+  }
+
   return (
     <main className="min-h-screen bg-slate-50">
-      <Navbar />
+      <Navbar config={siteConfigObj} products={productsList} />
 
       {/* Hero Header */}
       <section className="relative text-white flex items-center justify-center overflow-hidden min-h-[40vh] md:min-h-[50vh]">
@@ -236,7 +256,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer config={siteConfigObj} products={productsList} />
     </main>
   );
 }
